@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPoly: Environmental Board Game</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Menu Screen -->
+    <div id="menuScreen" class="screen active">
+        <div class="menu-container">
+            <h1 class="game-title">🌍 EcoPoly</h1>
+            <h2 class="game-subtitle">Environmental Board Game</h2>
+            <p class="game-description">A board game about balancing profit and planet</p>
+            
+            <div class="menu-buttons">
+                <button class="btn btn-primary" onclick="showPlayerSetup()">Start New Game</button>
+                <button class="btn btn-secondary" onclick="showRules()">How to Play</button>
+                <button class="btn btn-secondary" onclick="showAbout()">About</button>
+            </div>
+            
+            <div class="theme-info">
+                <p>🌱 Theme: Climate Change & Sustainability</p>
+                <p>📍 Context: Global Environmental Action</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Player Setup Screen -->
+    <div id="playerSetupScreen" class="screen">
+        <div class="setup-container">
+            <h2>Game Setup</h2>
+            <div class="setup-form">
+                <label>Number of Players (2-6):</label>
+                <input type="number" id="numPlayers" min="2" max="6" value="2">
+                
+                <div id="playerNames"></div>
+                
+                <label>Game Mode:</label>
+                <select id="gameMode">
+                    <option value="competitive">Competitive Mode</option>
+                    <option value="coop">Co-op Mode (Keep CO2 < 40)</option>
+                    <option value="corporate">Corporate Mode (Secret Polluter)</option>
+                </select>
+                
+                <div class="setup-buttons">
+                    <button class="btn btn-primary" onclick="startGame()">Start Game</button>
+                    <button class="btn btn-secondary" onclick="showMenu()">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen">
+        <!-- Header with Game Info -->
+        <div class="game-header">
+            <div class="header-left">
+                <h3>Round: <span id="roundNumber">1</span> / 20</h3>
+                <div class="global-co2">
+                    Global CO2: <span id="globalCO2">0</span> 🏭
+                </div>
+            </div>
+            <div class="header-center">
+                <h2>EcoPoly</h2>
+            </div>
+            <div class="header-right">
+                <button class="btn btn-small" onclick="showHelp()">❓ Help</button>
+                <button class="btn btn-small" onclick="pauseGame()">⏸️ Menu</button>
+            </div>
+        </div>
+
+        <!-- Main Game Area -->
+        <div class="game-main">
+            <!-- Left Sidebar - Current Player Info -->
+            <div class="sidebar-left">
+                <div class="current-player-card">
+                    <h3>Current Turn</h3>
+                    <div id="currentPlayerInfo">
+                        <div class="player-name">Player 1</div>
+                        <div class="player-token">🌿</div>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <span class="stat-label">💰 EcoCredits:</span>
+                                <span class="stat-value" id="playerCredits">1500</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">🌱 Sustainability:</span>
+                                <span class="stat-value" id="playerSS">50</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">👥 Influence:</span>
+                                <span class="stat-value" id="playerCI">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">🏭 Carbon:</span>
+                                <span class="stat-value" id="playerCO2">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-panel">
+                    <h4>Actions</h4>
+                    <button class="btn btn-action" id="rollDiceBtn" onclick="rollDice()">🎲 Roll Dice</button>
+                    <button class="btn btn-action" id="endTurnBtn" onclick="endTurn()" disabled>⏭️ End Turn</button>
+                </div>
+
+                <div class="strategic-actions">
+                    <h4>Strategic Actions</h4>
+                    <button class="btn btn-strategic" onclick="investInnovation()">💡 Invest in Innovation (300 Credits)</button>
+                    <button class="btn btn-strategic" onclick="launchCampaign()">📢 Launch Campaign (150 Credits)</button>
+                    <button class="btn btn-strategic" onclick="offsetEmissions()">♻️ Offset Emissions (100 per token)</button>
+                    <button class="btn btn-strategic" onclick="lobbyPolicy()">🏛️ Lobby for Policy (Uses Influence)</button>
+                </div>
+            </div>
+
+            <!-- Center - Game Board -->
+            <div class="board-container">
+                <div id="gameBoard" class="board">
+                    <!-- Board spaces will be generated by JavaScript -->
+                </div>
+                <div class="dice-display" id="diceDisplay">
+                    <div class="dice" id="dice1">?</div>
+                    <div class="dice" id="dice2">?</div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar - All Players & Activity Log -->
+            <div class="sidebar-right">
+                <div class="all-players-panel">
+                    <h4>All Players</h4>
+                    <div id="allPlayersList"></div>
+                </div>
+
+                <div class="activity-log">
+                    <h4>Activity Log</h4>
+                    <div id="logMessages"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rules Screen -->
+        <!-- Rules Screen -->
+    <div id="rulesScreen" class="screen">
+        <div class="rules-container">
+            <h2>How to Play EcoPoly</h2>
+            <div class="rules-content">
+                <section>
+                    <h3>🎯 Objective</h3>
+                    <p>Achieve the highest <strong>Global Impact Score (GIS)</strong> by balancing economic success with environmental sustainability.</p>
+                    <p><strong>GIS Formula:</strong> Sustainability Score + (EcoCredits ÷ 100) + Community Influence - (Carbon Tokens × 5)</p>
+                    <p><strong>Example:</strong> If you have 60 SS, 500 Credits, 8 CI, and 3 CO2: GIS = 60 + 5 + 8 - 15 = <strong>58 points</strong></p>
+                </section>
+
+                <section>
+                    <h3>🎲 Gameplay</h3>
+                    <ol>
+                        <li><strong>Roll dice</strong> (2d6) and move your token around the board</li>
+                        <li><strong>Resolve the space</strong> you land on (buy property, draw card, pay tax, etc.)</li>
+                        <li><strong>Take a strategic action</strong> (optional - costs EcoCredits)</li>
+                        <li><strong>End your turn</strong> and pass to the next player</li>
+                    </ol>
+                    <p><strong>Note:</strong> You must roll dice and resolve your landing before taking strategic actions.</p>
+                </section>
+
+                <section>
+                    <h3>🏢 Properties</h3>
+                    <p><strong>When you land on an unowned property:</strong> You can buy it and choose a development path.</p>
+                    <p><strong>🌱 Eco Path:</strong></p>
+                    <ul style="margin-left: 20px;">
+                        <li>Lower rent collected from others (100 + upgrades×50 EcoCredits)</li>
+                        <li>Gain +5 Sustainability Score immediately</li>
+                        <li>Produces NO Carbon Tokens each round</li>
+                        <li>Better for the environment and your score!</li>
+                    </ul>
+                    <p><strong>🏭 Industrial Path:</strong></p>
+                    <ul style="margin-left: 20px;">
+                        <li>Higher rent collected from others (200 + upgrades×75 EcoCredits)</li>
+                        <li>More immediate profit</li>
+                        <li>Generates +1 Carbon Token each round</li>
+                        <li>Hurts the environment but earns more money short-term</li>
+                    </ul>
+                    <p><strong>💡 Tip:</strong> You can convert Industrial properties to Eco later at a cost!</p>
+                </section>
+
+                <section>
+                    <h3>🃏 Cards</h3>
+                    <p><strong>🌱 Green Cards:</strong> Positive innovations and environmental breakthroughs</p>
+                    <ul style="margin-left: 20px;">
+                        <li>Always beneficial to the player who draws them</li>
+                        <li>May give EcoCredits, Sustainability Score, or Community Influence</li>
+                        <li>Can also reduce Carbon Tokens</li>
+                        <li><strong>Example:</strong> "Solar Panel Breakthrough: Gain 250 EcoCredits and +10 Sustainability"</li>
+                    </ul>
+                    <p><strong>⚠️ Crisis Cards:</strong> Environmental challenges requiring tough choices</p>
+                    <ul style="margin-left: 20px;">
+                        <li>Present a dilemma with two options</li>
+                        <li>Each choice has different consequences</li>
+                        <li>Must choose between profit and planet</li>
+                        <li><strong>Example:</strong> "Oil Spill: Pay 300 to clean up (+10 SS) OR ignore it (gain 200 but lose -15 SS)"</li>
+                    </ul>
+                    <p><strong>🏛️ Policy Cards:</strong> Special cards used during Global Summit votes (advanced feature)</p>
+                </section>
+
+                <section>
+                    <h3>🌡️ CO2 Thresholds</h3>
+                    <p>As global CO2 accumulates, the planet faces increasing dangers:</p>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>10 CO2:</strong> Climate Warning - notification only</li>
+                        <li><strong>20 CO2:</strong> Extreme Weather - ALL players lose 100 EcoCredits</li>
+                        <li><strong>30 CO2:</strong> Global Summit - Players vote on environmental policies</li>
+                        <li><strong>40 CO2:</strong> Climate Crisis - Random properties are destroyed!</li>
+                    </ul>
+                    <p><strong>Important:</strong> Industrial properties add +1 CO2 each round. Everyone shares the consequences!</p>
+                </section>
+
+                <section>
+                    <h3>⚡ Strategic Actions (Optional Each Turn)</h3>
+                    <p>After resolving your landing space, you can take ONE of these actions:</p>
+                    
+                    <p><strong>💡 Invest in Innovation</strong> - Cost: 300 EcoCredits</p>
+                    <ul style="margin-left: 20px;">
+                        <li>Draw a Green Card immediately</li>
+                        <li>Gain the benefits shown on the card</li>
+                        <li><strong>Effect:</strong> Usually gain 200-400 EcoCredits, +5-15 Sustainability, and possibly other bonuses</li>
+                    </ul>
+                    
+                    <p><strong>📢 Launch Campaign</strong> - Cost: 150 EcoCredits</p>
+                    <ul style="margin-left: 20px;">
+                        <li>Gain +3 Community Influence points</li>
+                        <li><strong>Effect:</strong> Community Influence directly adds to your GIS and helps in votes</li>
+                    </ul>
+                    
+                    <p><strong>♻️ Offset Emissions</strong> - Cost: 100 EcoCredits per token</p>
+                    <ul style="margin-left: 20px;">
+                        <li>Remove Carbon Tokens from your personal total</li>
+                        <li>Choose how many tokens to offset</li>
+                        <li><strong>Effect:</strong> Each Carbon Token removed saves you 5 GIS points at game end</li>
+                        <li><strong>Example:</strong> Offset 3 tokens = costs 300 EcoCredits, saves 15 GIS points</li>
+                    </ul>
+                    
+                    <p><strong>🏛️ Lobby for Policy</strong> - Cost: Uses Community Influence</p>
+                    <ul style="margin-left: 20px;">
+                        <li>Propose a special rule change or policy</li>
+                        <li>All players vote on your proposal</li>
+                        <li><strong>Effect:</strong> Can change game rules if majority agrees (advanced feature)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>🏆 Winning</h3>
+                    <p>Game ends after <strong>20 rounds</strong>. The player with the highest GIS wins!</p>
+                    <p><strong>Tie-breaker:</strong> If GIS is equal, winner is determined by:</p>
+                    <ol style="margin-left: 20px;">
+                        <li>Lowest Carbon Tokens (better for environment)</li>
+                        <li>Most EcoCredits (more economic success)</li>
+                    </ol>
+                </section>
+            </div>
+            <button class="btn btn-primary" onclick="showMenu()">Back to Menu</button>
+        </div>
+    </div>
+
+    <!-- About Screen -->
+    <div id="aboutScreen" class="screen">
+        <div class="about-container">
+            <h2>About EcoPoly</h2>
+            <div class="about-content">
+                <section>
+                    <h3>🌍 Educational Purpose</h3>
+                    <p>EcoPoly teaches players about the critical tradeoffs between economic growth and environmental sustainability. Through gameplay, you'll experience:</p>
+                    <ul>
+                        <li>The challenge of balancing short-term profits with long-term environmental health</li>
+                        <li>How individual actions contribute to global climate change</li>
+                        <li>The power of collective action and policy in addressing environmental issues</li>
+                        <li>Real-world sustainability concepts like carbon footprints and green technology</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>🎮 Game Design</h3>
+                    <p>This web-based adaptation of EcoPoly brings the board game experience to your browser. Built with pure HTML, CSS, and JavaScript, it demonstrates how games can be powerful tools for education and awareness about pressing social challenges.</p>
+                </section>
+
+                <section>
+                    <h3>🌱 Real-World Connection</h3>
+                    <p>The game mechanics reflect real sustainability challenges:</p>
+                    <ul>
+                        <li><strong>EcoCredits:</strong> Represent economic resources</li>
+                        <li><strong>Carbon Tokens:</strong> Your environmental footprint</li>
+                        <li><strong>Sustainability Score:</strong> Your positive environmental impact</li>
+                        <li><strong>Community Influence:</strong> Social capital for change</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>👥 Developed For</h3>
+                    <p>Challenge 3 - Hackathon: Social Impact Gaming</p>
+                    <p>Theme: Climate Change & Sustainability</p>
+                    <p>Version 1.0 - 2025</p>
+                </section>
+            </div>
+            <button class="btn btn-primary" onclick="showMenu()">Back to Menu</button>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="resultsScreen" class="screen">
+        <div class="results-container">
+            <h2>🏆 Game Complete!</h2>
+            <div id="resultsContent">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+            <div class="results-buttons">
+                <button class="btn btn-primary" onclick="showMenu()">Back to Menu</button>
+                <button class="btn btn-secondary" onclick="startGame()">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlays -->
+    <div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
+
+    <!-- Landing Action Modal -->
+    <div id="landingModal" class="modal">
+        <div class="modal-content landing-modal-content">
+            <h2 id="landingTitle">🎲 You Landed!</h2>
+            <div id="landingContent">
+                <p id="landingAction"></p>
+                <div id="landingDetails"></div>
+                <div id="landingConsequences"></div>
+            </div>
+            <button class="btn btn-primary" id="landingBtn" onclick="closeModal()">Got it!</button>
+        </div>
+    </div>
+
+    <!-- Property Modal -->
+    <div id="propertyModal" class="modal">
+        <div class="modal-content">
+            <h3 id="propertyName">Property Name</h3>
+            <p id="propertyDescription"></p>
+            <div id="propertyOptions"></div>
+        </div>
+    </div>
+
+    <!-- Card Modal -->
+    <div id="cardModal" class="modal">
+        <div class="modal-content card-modal-content">
+            <div class="card-display">
+                <div class="card-type" id="cardType">Green Card</div>
+                <div class="card-text" id="cardText"></div>
+                <div class="card-effect" id="cardEffect"></div>
+            </div>
+            <div id="cardOptions"></div>
+        </div>
+    </div>
+
+    <!-- Event Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <h3 id="eventTitle">Event</h3>
+            <p id="eventDescription"></p>
+            <button class="btn btn-primary" onclick="closeModal()">Continue</button>
+        </div>
+    </div>
+
+    <!-- Global Summit Modal -->
+    <div id="summitModal" class="modal">
+        <div class="modal-content summit-modal">
+            <h3>🏛️ Global Summit</h3>
+            <p>A policy has been proposed for vote:</p>
+            <div id="policyProposal"></div>
+            <div id="votingArea"></div>
+        </div>
+    </div>
+
+    <!-- Voting Modal (for sequential player voting) -->
+    <div id="actionModal" class="modal">
+        <div class="modal-content">
+            <!-- Content populated by JavaScript -->
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

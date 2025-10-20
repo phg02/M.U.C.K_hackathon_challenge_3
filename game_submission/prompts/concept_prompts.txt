@@ -1,0 +1,117 @@
+===========================================
+ECOPOLIS: CONCEPT PROMPTS
+Used for brainstorming and game design
+===========================================
+
+PROMPT 1: Initial Game Concept
+-------------------------------
+"Create a board game concept that teaches players about climate change and sustainability. The game should:
+- Be engaging and fun to play
+- Incorporate real-world environmental challenges
+- Allow 2-6 players
+- Take 60-120 minutes to play
+- Include meaningful choices with tradeoffs between profit and environmental impact
+- Be suitable for educational purposes
+- Address both Vietnam and Australia contexts"
+
+PROMPT 2: Game Mechanics Design
+--------------------------------
+"Design detailed game mechanics for an environmental board game that includes:
+- Resource management (money, sustainability points, carbon footprint)
+- Property ownership with different development paths (eco-friendly vs industrial)
+- Card system for random events (positive and negative)
+- Cooperative and competitive elements
+- Policy voting system
+- Progressive difficulty through CO2 thresholds
+- Strategic actions beyond basic turn structure"
+
+PROMPT 3: Educational Integration
+----------------------------------
+"How can we integrate these real-world sustainability concepts into game mechanics:
+- Carbon footprint and emissions
+- Renewable vs fossil fuel energy
+- Green technology and innovation
+- Community engagement and influence
+- Policy-making and governance
+- Short-term profit vs long-term sustainability
+- Collective action problems
+- Climate disasters and adaptation"
+
+PROMPT 4: Player Engagement
+----------------------------
+"What game elements will keep players engaged and create memorable moments:
+- Tension points (disasters, votes, shortages)
+- Player interaction (trading, competition, cooperation)
+- Meaningful choices (dilemmas with no clear right answer)
+- Progression systems (upgrades, improvements)
+- Surprise elements (cards, random events)
+- Multiple paths to victory"
+
+PROMPT 5: Balancing Challenge
+------------------------------
+"How do we balance the game so that:
+- Eco path is viable but challenging
+- Industrial path has real consequences
+- No strategy is clearly dominant
+- All players stay competitive until the end
+- Cooperation has value even in competitive mode
+- Early mistakes can be recovered from
+- Late-game is exciting and unpredictable"
+
+PROMPT 6: Theme Integration - Vietnam
+--------------------------------------
+"What environmental challenges specific to Vietnam should be represented:
+- Mekong Delta vulnerability to sea level rise
+- Urban air pollution in major cities
+- Deforestation and biodiversity loss
+- Rapid industrialization impacts
+- Renewable energy adoption
+- Community-based environmental action"
+
+PROMPT 7: Theme Integration - Australia
+----------------------------------------
+"What environmental challenges specific to Australia should be represented:
+- Bushfires and extreme heat
+- Great Barrier Reef degradation
+- Drought and water scarcity
+- Coal vs renewable energy debate
+- Wildlife habitat loss
+- Indigenous land management practices"
+
+PROMPT 8: Win Condition Design
+-------------------------------
+"Design a scoring system that rewards:
+- Environmental stewardship (Sustainability Score)
+- Economic success (EcoCredits)
+- Social influence (Community Influence)
+- Penalties for pollution (Carbon Tokens)
+- Formula should make all factors matter
+- No single metric should dominate
+- Tie-breakers should be meaningful"
+
+PROMPT 9: Card Content Generation
+----------------------------------
+"Create 15 positive event cards (Green Cards) that:
+- Reward sustainable choices
+- Provide resources or bonuses
+- Reflect real innovations or policies
+- Feel satisfying to receive
+- Have varying impact levels
+
+Create 12 crisis/challenge cards that:
+- Present difficult choices
+- Have multiple options with tradeoffs
+- Reflect real climate challenges
+- Create tension and drama
+- Can be mitigated by good planning"
+
+PROMPT 10: Replayability
+-------------------------
+"How can we ensure high replayability:
+- Randomized card draws
+- Variable board setup
+- Multiple game modes
+- Different strategies to explore
+- Player count scaling
+- Optional rules variants
+- Emergent player interactions"

@@ -1,0 +1,364 @@
+===========================================
+ECOPOLIS: REFINEMENT PROMPTS
+Used for debugging, polishing, and improvements
+===========================================
+
+PROMPT 1: Gameplay Balance Testing
+-----------------------------------
+"Test and adjust game balance:
+- Is Eco path viable compared to Industrial?
+- Can players recover from early mistakes?
+- Is any strategy clearly dominant?
+- Do all resources matter for winning?
+- Are CO2 thresholds triggered at good times?
+- Is game length appropriate?
+- Do all players stay engaged throughout?
+
+Suggest balance adjustments based on testing"
+
+PROMPT 2: Bug Fixing - Turn System
+-----------------------------------
+"Debug turn system issues:
+- Dice not rolling when expected
+- Player not moving correctly
+- Turn not ending properly
+- Phase transitions broken
+- Multiple players moving at once
+- Dice roll button state incorrect
+
+Check state management and event handlers"
+
+PROMPT 3: Bug Fixing - Resource Management
+-------------------------------------------
+"Debug resource tracking issues:
+- Credits going negative
+- SS changes not reflecting
+- CO2 not updating globally
+- CI exceeding limits
+- Resources not persisting between turns
+- UI not showing correct values
+
+Verify calculation functions and update triggers"
+
+PROMPT 4: Bug Fixing - Property System
+---------------------------------------
+"Debug property issues:
+- Can't purchase when should be able
+- Ownership not displaying
+- Rent calculation incorrect
+- Path selection not working
+- Upgrades not applying
+- Conversion not working
+
+Check property state and modal logic"
+
+PROMPT 5: UI Polish - Visual Feedback
+--------------------------------------
+"Improve visual feedback:
+- Add hover effects to all interactive elements
+- Highlight current player more clearly
+- Show loading states during actions
+- Animate resource changes
+- Pulse important notifications
+- Add success/error visual indicators
+- Improve button disabled states"
+
+PROMPT 6: UI Polish - Layout
+-----------------------------
+"Refine layout and spacing:
+- Improve sidebar proportions
+- Adjust board size for different screens
+- Better spacing in player stats
+- Align elements consistently
+- Fix text overflow issues
+- Improve modal centering
+- Better use of whitespace"
+
+PROMPT 7: Performance Optimization
+-----------------------------------
+"Optimize game performance:
+- Reduce unnecessary re-renders
+- Optimize DOM manipulation
+- Lazy load game assets
+- Debounce frequent updates
+- Minimize localStorage writes
+- Cache calculated values
+- Profile and fix slowdowns"
+
+PROMPT 8: Mobile Optimization
+------------------------------
+"Improve mobile experience:
+- Make touch targets larger (min 44px)
+- Improve scrolling in sidebars
+- Better modal sizing on small screens
+- Readable text sizes
+- Simplified board on mobile
+- Test on various devices
+- Fix any layout breaking"
+
+PROMPT 9: Accessibility Improvements
+-------------------------------------
+"Enhance accessibility:
+- Add ARIA labels to all interactive elements
+- Ensure keyboard navigation works everywhere
+- Add skip links
+- Improve color contrast
+- Add alt text to icons
+- Screen reader announcements for events
+- Focus management in modals"
+
+PROMPT 10: Code Refactoring
+----------------------------
+"Refactor code for maintainability:
+- Extract magic numbers to constants
+- Break long functions into smaller ones
+- Add JSDoc comments
+- Consistent naming conventions
+- Remove duplicate code
+- Organize imports
+- Clear separation of concerns"
+
+PROMPT 11: Error Handling
+--------------------------
+"Improve error handling:
+- Add try-catch to critical functions
+- Validate all user inputs
+- Handle localStorage failures
+- Graceful degradation for missing features
+- Clear error messages for users
+- Log errors for debugging
+- Prevent game-breaking bugs"
+
+PROMPT 12: Tutorial/Onboarding
+-------------------------------
+"Add tutorial system:
+- First-time user walkthrough
+- Highlight key UI elements
+- Explain each turn phase
+- Show examples of card effects
+- Tip system during gameplay
+- Link to full rules
+- Skip option for experienced players"
+
+PROMPT 13: Quality of Life Features
+------------------------------------
+"Add QOL improvements:
+- Undo last action (limited)
+- Fast-forward animations option
+- Quick restart button
+- Save/load multiple games
+- Game speed settings
+- Tooltips on hover
+- Keyboard shortcut reminder"
+
+PROMPT 14: AI Player Behavior
+------------------------------
+"Improve AI decision making:
+- Better property purchase decisions
+- Strategic action prioritization
+- Smart voting in summits
+- Risk assessment for choices
+- Adapt strategy based on position
+- Different difficulty levels
+- Personality variations"
+
+PROMPT 15: Content Expansion
+-----------------------------
+"Add more content variety:
+- Additional green cards (20+ total)
+- More crisis scenarios (15+ total)
+- Extra policy cards (12+ total)
+- New property types
+- Special event cards
+- Achievements system
+- Custom scenarios"
+
+PROMPT 16: Multiplayer Testing
+-------------------------------
+"Test multiplayer scenarios:
+- 2-player balance
+- 6-player chaos management
+- Turn time recommendations
+- Player interaction frequency
+- Catch-up mechanics effectiveness
+- Runaway leader prevention
+- Kingmaker situations"
+
+PROMPT 17: Educational Value
+-----------------------------
+"Enhance educational aspects:
+- Add fact bubbles about real climate issues
+- Link game events to real-world examples
+- Post-game summary of lessons learned
+- Statistics on player choices
+- Comparison to real-world scenarios
+- Further reading suggestions
+- Teacher's guide"
+
+PROMPT 18: Visual Polish
+-------------------------
+"Final visual polish:
+- Consistent animation timing
+- Smooth transitions everywhere
+- Professional color scheme
+- Clean iconography
+- Polished typography
+- Attention to detail
+- Cohesive visual language"
+
+PROMPT 19: Cross-Browser Testing
+---------------------------------
+"Test across browsers:
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Check CSS compatibility
+- Test JavaScript features
+- Verify localStorage
+- Fix browser-specific issues"
+
+PROMPT 20: Final Testing Checklist
+-----------------------------------
+"Complete testing checklist:
+[ ] All screens render correctly
+[ ] Menu navigation works
+[ ] Player setup validates input
+[ ] Game initializes properly
+[ ] Dice rolling functions
+[ ] Movement works
+[ ] All space types resolve
+[ ] Cards draw and apply effects
+[ ] Properties purchase correctly
+[ ] Rent collection works
+[ ] Strategic actions function
+[ ] CO2 thresholds trigger
+[ ] Voting system works
+[ ] Game ends correctly
+[ ] Results calculate accurately
+[ ] Modals open/close properly
+[ ] Responsive design works
+[ ] No console errors
+[ ] Performance acceptable
+[ ] Accessible features work"
+
+PROMPT 21: Documentation Review
+--------------------------------
+"Review and improve documentation:
+- README.md completeness
+- Clear installation instructions
+- Accurate game rules
+- Code comments accuracy
+- Prompt documentation
+- License information
+- Contact/support info
+- Project structure clarity"
+
+PROMPT 22: Pre-Submission Polish
+---------------------------------
+"Final polish before submission:
+- Remove debug console.logs
+- Clean up commented code
+- Format code consistently
+- Check file naming conventions
+- Verify all files present
+- Test from fresh download
+- Screenshot capture
+- Video recording prep"
+
+PROMPT 23: User Feedback Integration
+-------------------------------------
+"Process user feedback:
+- Collect playtest feedback
+- Identify common confusion points
+- Note suggested improvements
+- Fix critical usability issues
+- Prioritize enhancement requests
+- Update based on feedback
+- Document changes made"
+
+PROMPT 24: Edge Cases
+----------------------
+"Handle edge cases:
+- Player has 0 credits
+- All cards drawn from deck
+- Property fully upgraded
+- Max CO2 reached
+- Tie in all metrics
+- Single player remaining
+- Invalid state recovery
+- Extreme values handling"
+
+PROMPT 25: Performance Metrics
+-------------------------------
+"Measure and optimize:
+- Initial load time
+- Turn processing speed
+- Animation frame rate
+- Memory usage
+- localStorage size
+- CPU usage
+- Battery impact (mobile)
+- Set performance budgets"
+
+PROMPT 26: Localization Prep
+-----------------------------
+"Prepare for localization:
+- Extract all text strings
+- Avoid hardcoded text
+- Use string templates
+- Consider text expansion
+- Currency symbol flexibility
+- Date/number formatting
+- RTL layout consideration
+- Language file structure"
+
+PROMPT 27: Security Review
+---------------------------
+"Security considerations:
+- Sanitize user inputs (names)
+- Validate localStorage data
+- Prevent XSS vulnerabilities
+- Check for injection risks
+- Secure random number generation
+- Data validation
+- No sensitive data exposure"
+
+PROMPT 28: Analytics Planning
+------------------------------
+"Plan analytics tracking:
+- Game completion rate
+- Average play time
+- Most chosen strategies
+- Popular property types
+- Strategic action frequency
+- Player count distribution
+- Win rate by strategy
+- CO2 threshold frequency"
+
+PROMPT 29: Future Roadmap
+--------------------------
+"Plan future enhancements:
+- Online multiplayer
+- Mobile app version
+- Additional themes/scenarios
+- Competitive ranking system
+- Achievements/badges
+- Social sharing
+- Saved games cloud sync
+- Community features"
+
+PROMPT 30: Final Review
+------------------------
+"Comprehensive final review:
+- Does game meet challenge requirements?
+- Is theme effectively addressed?
+- Is game fun and engaging?
+- Are mechanics clear?
+- Is code clean and documented?
+- Are all files properly organized?
+- Is README complete?
+- Are prompts documented?
+- Are screenshots ready?
+- Is video demo prepared?
+- Ready for submission?"

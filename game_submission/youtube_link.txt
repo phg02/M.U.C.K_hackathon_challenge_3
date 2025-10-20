@@ -1,0 +1,69 @@
+# YouTube Demo Video
+
+[PLACEHOLDER - Insert your YouTube video URL here]
+
+Example format:
+https://www.youtube.com/watch?v=YOUR_VIDEO_ID
+
+---
+
+## Video Requirements
+- Maximum duration: 7 minutes
+- Include voice-over explanation
+- Show all major game features
+- Demonstrate full gameplay loop
+
+## Recommended Content
+
+### Introduction (0:00-0:30)
+- Game title and theme
+- Your team name
+- Brief overview of game concept
+
+### Gameplay Demo (0:30-5:00)
+- Show menu and setup
+- Demonstrate a few turns
+- Explain key mechanics:
+  * Dice rolling and movement
+  * Property purchase (Eco vs Industrial choice)
+  * Card draws (Green and Crisis)
+  * Strategic actions
+  * CO2 thresholds
+  * Voting system
+- Show different game states
+
+### Educational Value (5:00-6:00)
+- Explain the social impact
+- Connect to real-world issues
+- Discuss learning outcomes
+
+### Technical Implementation (6:00-6:45)
+- Brief mention of tech stack
+- AI tools used
+- Web-based, no installation needed
+
+### Conclusion (6:45-7:00)
+- Summary of key features
+- Call to action (try the game!)
+- Thank you message
+
+---
+
+## Recording Tips
+- Use screen recording software (OBS, QuickTime, etc.)
+- Record in 1080p (1920x1080) or higher
+- Clear audio (good microphone)
+- Script or outline beforehand
+- Edit for clarity and pacing
+- Add captions if possible
+- Include game audio (if added)
+
+---
+
+## Upload Instructions
+1. Upload video to YouTube
+2. Set title: "EcoPolis: The Sustainability Challenge - Game Demo"
+3. Add description with game info and links
+4. Add tags: board game, climate change, sustainability, educational game, hackathon
+5. Copy video URL
+6. Paste URL at top of this file

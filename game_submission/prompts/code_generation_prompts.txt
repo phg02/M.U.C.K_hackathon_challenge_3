@@ -1,0 +1,295 @@
+===========================================
+ECOPOLIS: CODE GENERATION PROMPTS
+Used for implementing game logic
+===========================================
+
+PROMPT 1: Project Structure
+----------------------------
+"Create a complete file structure for a web-based board game using only HTML, CSS, and JavaScript. Include:
+- Main HTML file with all game screens (menu, setup, game, rules, about, results)
+- CSS with modern styling, animations, and responsive design
+- Modular JavaScript files for game logic, cards, board, and UI
+- No dependencies or external libraries
+- All assets embedded or generated dynamically"
+
+PROMPT 2: Game State Management
+--------------------------------
+"Implement a JavaScript game state object that tracks:
+- All players with their resources (credits, SS, CI, CO2)
+- Board spaces with ownership and upgrades
+- Current turn and phase
+- Card decks (green, crisis, policy)
+- Global metrics (CO2, round number)
+- Active policies and effects
+- Game mode and settings
+
+Include functions for:
+- Initializing game state
+- Updating state safely
+- Persisting state (localStorage)
+- Loading saved games"
+
+PROMPT 3: Board Rendering
+--------------------------
+"Create a function that renders a board game with 40 spaces arranged in a square:
+- Position spaces around the perimeter
+- 10 spaces per side
+- Use CSS absolute positioning
+- Include space types: properties, cards, tax, fund, summit
+- Show ownership with colors
+- Display player tokens on spaces
+- Animate movement
+- Handle responsive sizing"
+
+PROMPT 4: Turn System
+----------------------
+"Implement a complete turn system:
+1. Roll two dice (1-6 each)
+2. Move player token with animation
+3. Resolve space effects:
+   - Property purchase/rent
+   - Card draws
+   - Special spaces
+4. Allow strategic action
+5. End turn and advance to next player
+6. Handle round completion
+7. Check win conditions
+
+Include proper state management and UI updates"
+
+PROMPT 5: Property System
+--------------------------
+"Implement property ownership system:
+- Properties can be purchased when landed on
+- Two development paths: Eco or Industrial
+- Eco: lower rent, +SS, no CO2
+- Industrial: higher rent, generates CO2
+- Upgrades increase rent and effects
+- Conversion from Industrial to Eco
+- Rent collection when others land
+- Visual indicators of ownership"
+
+PROMPT 6: Card System
+----------------------
+"Create a card system with three decks:
+
+GREEN CARDS (15 cards):
+- Positive events and innovations
+- Automatic effects
+- Rewards for good choices
+- Examples: inventions, grants, awards
+
+CRISIS CARDS (12 cards):
+- Challenging events
+- Multiple choice options
+- Tradeoffs between resources
+- Examples: disasters, pollution, shortages
+
+POLICY CARDS (8 cards):
+- Used in Global Summit votes
+- Affect all players
+- Various effect types
+- Examples: taxes, subsidies, regulations
+
+Include shuffling, drawing, and effect application"
+
+PROMPT 7: Modal Dialogs
+------------------------
+"Create a modal system for:
+- Property purchase with path selection
+- Card display with choices
+- Event notifications
+- Policy voting
+- Game results
+
+Features:
+- Overlay background
+- Smooth animations
+- Button options
+- Keyboard support (Escape to close)
+- Click outside to close
+- Prevent multiple modals"
+
+PROMPT 8: Resource Management
+------------------------------
+"Implement resource tracking and modification:
+- EcoCredits (can't go negative)
+- Sustainability Score (can go negative)
+- Community Influence (0-50)
+- Carbon Tokens (0-10)
+
+Include:
+- Safe modification functions
+- Bounds checking
+- UI updates on change
+- Animated value transitions
+- Color coding (green=good, red=bad)"
+
+PROMPT 9: Event System
+-----------------------
+"Create dynamic event system:
+
+CO2 THRESHOLDS:
+- 10: Warning notification
+- 20: Extreme weather (all lose credits)
+- 30: Global Summit triggered
+- 40: Climate crisis (property damage)
+
+PERSONAL THRESHOLDS:
+- CO2 >= 6: Disaster roll (1d6)
+  1-2: Lose credits
+  3-4: Lose SS
+  5: Forced offset payment
+  6: Avoid disaster
+
+Include flags to prevent double-triggering"
+
+PROMPT 10: Strategic Actions
+-----------------------------
+"Implement four strategic actions:
+
+1. INVEST IN INNOVATION (ₑ300)
+   - Draw a Green Card
+   - Apply effect immediately
+
+2. LAUNCH CAMPAIGN (ₑ150)
+   - Gain +3 Community Influence
+
+3. OFFSET EMISSIONS (ₑ100 per token)
+   - Remove Carbon Tokens
+   - Reduce global CO2
+   - Player chooses amount
+
+4. LOBBY FOR POLICY (free, once per game)
+   - Propose custom policy
+   - Other players vote
+   - Apply if passed
+
+Include cost checking and UI feedback"
+
+PROMPT 11: Voting System
+-------------------------
+"Implement Global Summit voting:
+- One player proposes policy (or drawn from deck)
+- All players vote Yes/No
+- AI players vote based on self-interest
+- Majority wins
+- Apply policy effects based on type
+- Log results
+
+Policy types: tax, bonus, reduction, subsidy, penalty, modifier"
+
+PROMPT 12: Game End
+-------------------
+"Implement end game sequence:
+- Trigger after 20 rounds
+- Calculate Global Impact Score for each player:
+  GIS = SS + (Credits/100) + CI - (CO2 * 5)
+- Sort players by GIS
+- Apply tie-breakers:
+  1. Lower CO2
+  2. Higher Credits
+- Display results screen with:
+  - Winner announcement
+  - All player rankings
+  - Detailed stats
+- Co-op mode: check if global CO2 < 40"
+
+PROMPT 13: UI Updates
+---------------------
+"Create comprehensive UI update system:
+- Current player panel (name, token, all stats)
+- All players list (compact view)
+- Activity log (scrolling messages)
+- Header (round, global CO2)
+- Button states (enabled/disabled)
+- Board updates (ownership, tokens)
+
+Update triggers:
+- After any resource change
+- After movement
+- After card effects
+- On turn change
+- On game events"
+
+PROMPT 14: Activity Log
+------------------------
+"Implement scrolling activity log:
+- Display game events chronologically
+- Color coding by type:
+  - Normal: blue
+  - Important: orange
+  - Crisis: red
+- Limit to 50 messages
+- Auto-scroll to newest
+- Slide-in animation
+- Include icons/emoji
+- Clear, concise messages"
+
+PROMPT 15: Keyboard Shortcuts
+------------------------------
+"Add keyboard controls:
+- Space: Roll dice (if roll phase)
+- Enter: End turn (if action phase)
+- Escape: Close modals
+- H: Show help/rules
+- Don't trigger when in input fields
+- Show hints on first load"
+
+PROMPT 16: Auto-save
+--------------------
+"Implement auto-save:
+- Save to localStorage every 30 seconds during game
+- Save on page unload
+- Prompt to load on startup if save exists
+- Clear save on game end
+- Handle errors gracefully
+- Include game state version"
+
+PROMPT 17: Responsive Design
+-----------------------------
+"Make game responsive:
+- Desktop: 3-column layout (sidebars + board)
+- Tablet: Stack sidebars, smaller board
+- Mobile: Full stack, compact controls
+- Scale board size dynamically
+- Adjust font sizes
+- Touch-friendly buttons (min 44px)
+- Media queries at 1400px, 1024px, 768px"
+
+PROMPT 18: Animations
+---------------------
+"Add animations:
+- Dice roll: rotation animation
+- Player movement: bounce effect
+- Card reveal: slide in from top
+- Modal open: fade + scale
+- Stat changes: number count-up
+- New log entry: slide from right
+- Hover effects: scale + glow
+- Smooth transitions (0.3s ease)"
+
+PROMPT 19: Debug Tools
+----------------------
+"Add developer console tools:
+window.EcoPolisDebug = {
+  getState: () => current game state
+  addCredits: (amount) => add to current player
+  addSS: (amount) => add sustainability
+  skipToRound: (n) => jump to round n
+  triggerEvent: (type) => force trigger event
+  showAll: () => reveal all cards
+}
+
+Only available in browser console, not in UI"
+
+PROMPT 20: Error Handling
+--------------------------
+"Add error handling:
+- Try-catch around critical functions
+- Validate player actions (enough resources, valid state)
+- Prevent negative resources (except SS)
+- Handle missing elements gracefully
+- Console log errors for debugging
+- Show user-friendly error messages
+- Recover from bad state when possible"

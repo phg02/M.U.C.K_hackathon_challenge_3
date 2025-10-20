@@ -1,0 +1,294 @@
+===========================================
+ECOPOLIS: ASSET GENERATION PROMPTS
+Used for visual and audio assets
+===========================================
+
+PROMPT 1: Color Scheme
+-----------------------
+"Design a color palette for an environmental board game:
+- Primary color: eco-friendly green
+- Secondary colors for different zones:
+  * Energy (orange/yellow)
+  * Urban (blue)
+  * Natural (green)
+  * Policy (purple)
+- Accent colors for alerts and highlights
+- Dark mode friendly background
+- High contrast for accessibility
+- Professional but playful tone"
+
+PROMPT 2: Player Tokens
+------------------------
+"Choose 6 emoji or icon sets for player tokens that represent:
+- Environmental/nature themes
+- Easily distinguishable from each other
+- Work well at different sizes
+- Examples: plants, animals, natural elements
+- Should be: 🌿 🌱 🌳 🍃 🌾 🌻"
+
+PROMPT 3: Board Space Icons
+----------------------------
+"Create emoji/icon mappings for board spaces:
+
+PROPERTIES:
+- Solar Farm: ☀️
+- Wind Turbine: 💨
+- Coal Plant: 🏭
+- Green Building: 🏢
+- Public Transit: 🚇
+- Forest Reserve: 🌲
+- Wildlife Park: 🦋
+- Recycling Hub: ♻️
+- Hydro Dam: 🌊
+- Organic Farm: 🌾
+- (30+ more property types)
+
+SPECIAL SPACES:
+- Start: 🏁
+- Carbon Tax: 💸
+- Eco Fund: 💚
+- Global Summit: 🏛️
+- Green Card: 🌱
+- Crisis Card: ⚠️"
+
+PROMPT 4: Card Design
+----------------------
+"Design card layout template:
+- Card background with gradient
+- Border indicating card type (green/orange/purple)
+- Icon at top
+- Title text
+- Description text
+- Effect summary at bottom
+- Decorative elements (corners, patterns)
+
+Use CSS gradients and borders, no images needed"
+
+PROMPT 5: UI Components
+------------------------
+"Design modern UI components:
+- Buttons (primary, secondary, action)
+- Input fields and select dropdowns
+- Modal dialogs with backdrop
+- Player stat panels
+- Activity log messages
+- Progress indicators
+- Tooltips
+
+Style: Glassmorphism with backdrop blur, rounded corners, subtle shadows"
+
+PROMPT 6: Game Board Layout
+----------------------------
+"Design a square board game layout:
+- 40 spaces around perimeter (10 per side)
+- Each space 70-80px square
+- Central area for dice display
+- Space for card decks
+- Player token placement
+- Clear ownership indicators
+- Zone color coding
+- Corner spaces more prominent"
+
+PROMPT 7: Typography
+--------------------
+"Choose fonts and text styling:
+- Headings: Bold, modern sans-serif
+- Body: Clean, readable sans-serif
+- Numbers: Tabular figures for alignment
+- System fonts: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+- Font sizes: 
+  * Title: 4rem
+  * Heading: 1.8rem
+  * Body: 1rem
+  * Small: 0.85rem"
+
+PROMPT 8: Animations
+--------------------
+"Design animation effects:
+- Dice roll: 360° rotation with bounce
+- Card reveal: Slide down + fade in
+- Player movement: Smooth arc with hop
+- Modal open: Fade background + scale content
+- Button hover: Lift up + glow
+- Number changes: Count up animation
+- New log entry: Slide from right
+
+Timing: 0.3-0.5s, easing: ease or ease-out"
+
+PROMPT 9: Icons and Symbols
+----------------------------
+"Select emoji for game elements:
+- Resources:
+  * Credits: 💰 or ₑ
+  * Sustainability: 🌱
+  * Influence: 👥
+  * Carbon: 🏭
+  
+- Actions:
+  * Innovation: 💡
+  * Campaign: 📢
+  * Offset: ♻️
+  * Lobby: 🏛️
+  
+- Events:
+  * Warning: ⚠️
+  * Crisis: 🔥
+  * Success: ✅
+  * Disaster: 🌪️"
+
+PROMPT 10: Sound Effects (Descriptions)
+----------------------------------------
+"Describe sound effects needed:
+- Dice roll: Short rattle sound
+- Card draw: Soft whoosh
+- Purchase: Cash register ding
+- Crisis: Alarm beep
+- Success: Cheerful chime
+- Turn change: Soft click
+- CO2 threshold: Warning tone
+- Game end: Fanfare
+
+Note: Actual audio files not required for this version,
+but descriptions provided for future implementation"
+
+PROMPT 11: Background Patterns
+-------------------------------
+"Design CSS background patterns:
+- Menu screen: Gradient with subtle animation
+- Game board: Textured surface feeling
+- Cards: Themed gradients (green/orange/purple)
+- Modal overlays: Frosted glass effect
+- Sidebars: Semi-transparent panels
+
+Use CSS gradients, no image files"
+
+PROMPT 12: Responsive Breakpoints
+----------------------------------
+"Define responsive design breakpoints:
+- Desktop large: 1400px+
+  * 3 columns, full board (700px)
+- Desktop: 1024-1399px
+  * 3 columns, medium board (600px)
+- Tablet: 768-1023px
+  * Stacked layout, small board (500px)
+- Mobile: <768px
+  * Single column, compact board (400px)
+  * Touch-optimized controls"
+
+PROMPT 13: Loading States
+--------------------------
+"Design loading and transition states:
+- Spinner: Green circular animation
+- Skeleton screens: Pulsing placeholders
+- Progress bars: Green gradient fill
+- Disabled state: 50% opacity, no pointer
+- Loading overlay: Blur + centered spinner"
+
+PROMPT 14: Status Indicators
+-----------------------------
+"Design status indicator visuals:
+- Current player: Glow effect, green border
+- Owned property: Player color border
+- Eco property: Green gradient background
+- Industrial property: Gray gradient background
+- High CO2 warning: Red pulsing indicator
+- Low credits warning: Orange text
+- Achievement unlocked: Gold shine effect"
+
+PROMPT 15: Modal Variations
+----------------------------
+"Design different modal types:
+- Property modal: Property details + action buttons
+- Card modal: Large card display + effect
+- Event modal: Important announcement + icon
+- Voting modal: Policy + vote buttons for all players
+- Results modal: Rankings + stats table
+- Confirmation modal: Question + Yes/No buttons"
+
+PROMPT 16: Logo Design
+-----------------------
+"Design logo elements (text-based):
+- Game title: 'EcoPolis'
+- Font: Bold, modern, slight arc
+- Color: Green gradient
+- Icon: 🌍 Earth emoji
+- Subtitle: 'The Sustainability Challenge'
+- Tagline: 'Balance Profit and Planet'
+
+Implemented purely with CSS text styling"
+
+PROMPT 17: Zone Themes
+-----------------------
+"Visual themes for each board zone:
+
+ENERGY REVOLUTION (Orange):
+- Sun, wind, water symbols
+- Bright, energetic colors
+- Tech-focused icons
+
+URBAN RENEWAL (Blue):
+- Buildings, transit, parks
+- Clean, modern aesthetics
+- Infrastructure icons
+
+NATURAL WORLD (Green):
+- Trees, animals, ecosystems
+- Organic, flowing design
+- Nature icons
+
+GLOBAL POLICY (Purple):
+- Government, voting, unity
+- Formal, authoritative
+- Political icons"
+
+PROMPT 18: Accessibility
+-------------------------
+"Ensure visual accessibility:
+- Minimum contrast ratio 4.5:1
+- Color not sole indicator (use icons too)
+- Text size minimum 14px
+- Touch targets minimum 44px
+- Keyboard navigation visible
+- Screen reader friendly labels
+- Reduced motion option
+- High contrast mode support"
+
+PROMPT 19: Victory/Defeat Screens
+----------------------------------
+"Design end game screen variations:
+- Victory: Gold confetti effect, trophy emoji 🏆
+- Defeat (Co-op): Gray tone, sad earth 🌍
+- Tie: Silver medals, handshake 🤝
+- High score: Fireworks effect, star ⭐
+- Background: Relevant to outcome
+- Prominent score display
+- Play again button"
+
+PROMPT 20: Screenshot Composition
+----------------------------------
+"Plan 5 screenshots for submission:
+
+1. menu_screen.png:
+   - Main menu with title
+   - Start button prominent
+   - Theme info visible
+
+2. play_screen1.png:
+   - Full game board
+   - Players on spaces
+   - Sidebars with stats
+
+3. play_screen2.png:
+   - Card modal open
+   - Crisis card being resolved
+   - Decision options visible
+
+4. play_screen3.png:
+   - Property purchase decision
+   - Eco vs Industrial choice
+   - Resources displayed
+
+5. results_screen.png:
+   - Final rankings
+   - Winner celebration
+   - All player scores"
