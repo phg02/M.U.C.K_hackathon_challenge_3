@@ -1,295 +1,421 @@
-===========================================
-ECOPOLIS: CODE GENERATION PROMPTS
-Used for implementing game logic
-===========================================
+verview
+For this challenge, students will vibe code using LLMs to design and develop a web-based game that highlights and addresses a pressing social challenge in Vietnam or Australia. The game should be fun to play, educational, and impactful - giving players a fresh perspective on important real-world issues.
 
-PROMPT 1: Project Structure
-----------------------------
-"Create a complete file structure for a web-based board game using only HTML, CSS, and JavaScript. Include:
-- Main HTML file with all game screens (menu, setup, game, rules, about, results)
-- CSS with modern styling, animations, and responsive design
-- Modular JavaScript files for game logic, cards, board, and UI
-- No dependencies or external libraries
-- All assets embedded or generated dynamically"
+Description
+You are required to vibe code a game using any LLMs that you find suitable to achieve the goals. The aim is to deliver a complete web game that fits the theme:
 
-PROMPT 2: Game State Management
---------------------------------
-"Implement a JavaScript game state object that tracks:
-- All players with their resources (credits, SS, CI, CO2)
-- Board spaces with ownership and upgrades
-- Current turn and phase
-- Card decks (green, crisis, policy)
-- Global metrics (CO2, round number)
-- Active policies and effects
-- Game mode and settings
+The game should take the form of a board game, card game, dice game, or any game topic of simple web game format.
+The gameplay mechanics must directly connect to the chosen social issue, making the game both educational and engaging.
+Suggested themes may include (but are not limited to):
+Climate change & sustainability
+Access to education
+Mental health & wellbeing
+Social equity & inclusion
+Community resilience
+So on
+Contestants need to decide on topics that suit their local context (either Vietnam or Australia).
 
-Include functions for:
-- Initializing game state
-- Updating state safely
-- Persisting state (localStorage)
-- Loading saved games"
+Game Requirements
+Your game must include at least the following screens/views:
 
-PROMPT 3: Board Rendering
---------------------------
-"Create a function that renders a board game with 40 spaces arranged in a square:
-- Position spaces around the perimeter
-- 10 spaces per side
-- Use CSS absolute positioning
-- Include space types: properties, cards, tax, fund, summit
-- Show ownership with colors
-- Display player tokens on spaces
-- Animate movement
-- Handle responsive sizing"
+Menu
+Play
+Please free to add other approriate screens as you would like.
 
-PROMPT 4: Turn System
-----------------------
-"Implement a complete turn system:
-1. Roll two dice (1-6 each)
-2. Move player token with animation
-3. Resolve space effects:
-   - Property purchase/rent
-   - Card draws
-   - Special spaces
-4. Allow strategic action
-5. End turn and advance to next player
-6. Handle round completion
-7. Check win conditions
+Additional guidelines:
 
-Include proper state management and UI updates"
+The game must be in 2D. (Optional: or 3D if your team is able.)
+Game assets (sprites, backgrounds, sound effects, code logics, etc.) can also be generated using your choices of AI models such as ChatGPT, Gemini, Nano Banana, Sora, …, where appropriate.
+The game must only use HTML, CSS and Javascript. Feel free to use any HTML, CSS and JavaScript libraries/frameworks as long as it can run fully on the browser (only on front-end) without a need to install any additional installation or setup or backend.
+You can use any AI platform, extension, website or service to help you to create this game.
+Submission Requirements
+Teams must submit following this specific directory structure on a public GitHub repository:
 
-PROMPT 5: Property System
---------------------------
-"Implement property ownership system:
-- Properties can be purchased when landed on
-- Two development paths: Eco or Industrial
-- Eco: lower rent, +SS, no CO2
-- Industrial: higher rent, generates CO2
-- Upgrades increase rent and effects
-- Conversion from Industrial to Eco
-- Rent collection when others land
-- Visual indicators of ownership"
-
-PROMPT 6: Card System
-----------------------
-"Create a card system with three decks:
-
-GREEN CARDS (15 cards):
-- Positive events and innovations
-- Automatic effects
-- Rewards for good choices
-- Examples: inventions, grants, awards
-
-CRISIS CARDS (12 cards):
-- Challenging events
-- Multiple choice options
-- Tradeoffs between resources
-- Examples: disasters, pollution, shortages
-
-POLICY CARDS (8 cards):
-- Used in Global Summit votes
-- Affect all players
-- Various effect types
-- Examples: taxes, subsidies, regulations
-
-Include shuffling, drawing, and effect application"
-
-PROMPT 7: Modal Dialogs
-------------------------
-"Create a modal system for:
-- Property purchase with path selection
-- Card display with choices
-- Event notifications
-- Policy voting
-- Game results
-
-Features:
-- Overlay background
-- Smooth animations
-- Button options
-- Keyboard support (Escape to close)
-- Click outside to close
-- Prevent multiple modals"
-
-PROMPT 8: Resource Management
-------------------------------
-"Implement resource tracking and modification:
-- EcoCredits (can't go negative)
-- Sustainability Score (can go negative)
-- Community Influence (0-50)
-- Carbon Tokens (0-10)
-
-Include:
-- Safe modification functions
-- Bounds checking
-- UI updates on change
-- Animated value transitions
-- Color coding (green=good, red=bad)"
-
-PROMPT 9: Event System
------------------------
-"Create dynamic event system:
-
-CO2 THRESHOLDS:
-- 10: Warning notification
-- 20: Extreme weather (all lose credits)
-- 30: Global Summit triggered
-- 40: Climate crisis (property damage)
-
-PERSONAL THRESHOLDS:
-- CO2 >= 6: Disaster roll (1d6)
-  1-2: Lose credits
-  3-4: Lose SS
-  5: Forced offset payment
-  6: Avoid disaster
-
-Include flags to prevent double-triggering"
-
-PROMPT 10: Strategic Actions
------------------------------
-"Implement four strategic actions:
-
-1. INVEST IN INNOVATION (ₑ300)
-   - Draw a Green Card
-   - Apply effect immediately
-
-2. LAUNCH CAMPAIGN (ₑ150)
-   - Gain +3 Community Influence
-
-3. OFFSET EMISSIONS (ₑ100 per token)
-   - Remove Carbon Tokens
-   - Reduce global CO2
-   - Player chooses amount
-
-4. LOBBY FOR POLICY (free, once per game)
-   - Propose custom policy
-   - Other players vote
-   - Apply if passed
-
-Include cost checking and UI feedback"
-
-PROMPT 11: Voting System
--------------------------
-"Implement Global Summit voting:
-- One player proposes policy (or drawn from deck)
-- All players vote Yes/No
-- AI players vote based on self-interest
-- Majority wins
-- Apply policy effects based on type
-- Log results
-
-Policy types: tax, bonus, reduction, subsidy, penalty, modifier"
-
-PROMPT 12: Game End
--------------------
-"Implement end game sequence:
-- Trigger after 20 rounds
-- Calculate Global Impact Score for each player:
-  GIS = SS + (Credits/100) + CI - (CO2 * 5)
-- Sort players by GIS
-- Apply tie-breakers:
-  1. Lower CO2
-  2. Higher Credits
-- Display results screen with:
-  - Winner announcement
-  - All player rankings
-  - Detailed stats
-- Co-op mode: check if global CO2 < 40"
-
-PROMPT 13: UI Updates
----------------------
-"Create comprehensive UI update system:
-- Current player panel (name, token, all stats)
-- All players list (compact view)
-- Activity log (scrolling messages)
-- Header (round, global CO2)
-- Button states (enabled/disabled)
-- Board updates (ownership, tokens)
-
-Update triggers:
-- After any resource change
-- After movement
-- After card effects
-- On turn change
-- On game events"
-
-PROMPT 14: Activity Log
-------------------------
-"Implement scrolling activity log:
-- Display game events chronologically
-- Color coding by type:
-  - Normal: blue
-  - Important: orange
-  - Crisis: red
-- Limit to 50 messages
-- Auto-scroll to newest
-- Slide-in animation
-- Include icons/emoji
-- Clear, concise messages"
-
-PROMPT 15: Keyboard Shortcuts
-------------------------------
-"Add keyboard controls:
-- Space: Roll dice (if roll phase)
-- Enter: End turn (if action phase)
-- Escape: Close modals
-- H: Show help/rules
-- Don't trigger when in input fields
-- Show hints on first load"
-
-PROMPT 16: Auto-save
---------------------
-"Implement auto-save:
-- Save to localStorage every 30 seconds during game
-- Save on page unload
-- Prompt to load on startup if save exists
-- Clear save on game end
-- Handle errors gracefully
-- Include game state version"
-
-PROMPT 17: Responsive Design
------------------------------
-"Make game responsive:
-- Desktop: 3-column layout (sidebars + board)
-- Tablet: Stack sidebars, smaller board
-- Mobile: Full stack, compact controls
-- Scale board size dynamically
-- Adjust font sizes
-- Touch-friendly buttons (min 44px)
-- Media queries at 1400px, 1024px, 768px"
-
-PROMPT 18: Animations
----------------------
-"Add animations:
-- Dice roll: rotation animation
-- Player movement: bounce effect
-- Card reveal: slide in from top
-- Modal open: fade + scale
-- Stat changes: number count-up
-- New log entry: slide from right
-- Hover effects: scale + glow
-- Smooth transitions (0.3s ease)"
-
-PROMPT 19: Debug Tools
-----------------------
-"Add developer console tools:
-window.EcoPolisDebug = {
-  getState: () => current game state
-  addCredits: (amount) => add to current player
-  addSS: (amount) => add sustainability
-  skipToRound: (n) => jump to round n
-  triggerEvent: (type) => force trigger event
-  showAll: () => reveal all cards
+game_submission/
+├── README.md    # Overview, instructions to run the game, and project summary  
+│  
+├── project_report.pdf   # Full report with introduction of the game, game theme topic justification, potential impact, technology stack (including AI tools and web libraries), overview of game mechanics, and reflection  
+│  
+├── youtube_link.txt  # Include only the YouTube URL for your game’s demo video with voice-over (maximum 7 minutes)  
+│  
+├── prompts/  
+│   ├── concept_prompts.txt                  # Prompts used for brainstorming ideas  
+│   ├── asset_generation_prompts.txt        # Prompts used for generating visuals or assets  
+│   ├── code_generation_prompts.txt          # Prompts used for game logic or UI  
+│   ├── refinement_prompts.txt              # Prompts used for debugging, polishing, etc.  
+│   └── ...                                                            
+│  
+├── game_app/                        # A playable, working web game app  
+│   ├── index.html                   # Main entry point (Welcome/Menu/Play)  
+│   └── ...                          # Other relevant game files and folders (game assets, css, javascript, etc.)  
+│  
+└── screenshots/                     # Maximum 5 screenshots only  
+    ├── menu_screen.png  
+    ├── play_screen1.png  
+    ├── play_screen2.png  
+    ├── play_screen3.png  
+    └── results_screen.png  {
+  "game": {
+    "title": "EcoPolis: The Sustainability Challenge (Expanded Edition)",
+    "version": "1.0",
+    "players": {
+      "min": 2,
+      "max": 6,
+      "recommended": 4
+    },
+    "duration": "60-120 minutes (variable by player count and mode)"
+  },
+  "components": {
+    "board": {
+      "spaces": 40,
+      "zones": [
+        "Energy Revolution",
+        "Urban Renewal",
+        "Natural World",
+        "Global Policy"
+      ]
+    },
+    "currency": "EcoCredits",
+    "secondary_tokens": "CarbonTokens",
+    "cards": [
+      "GreenCards",
+      "CrisisCards",
+      "PolicyCards"
+    ],
+    "dice": "2d6",
+    "tokens": "6-8 eco-themed player pieces",
+    "trackers": [
+      "SustainabilityScore",
+      "CommunityInfluence",
+      "EcoCredits",
+      "CarbonTokens"
+    ]
+  },
+  "setup": {
+    "starting_resources": {
+      "EcoCredits": 1500,
+      "SustainabilityScore": 50,
+      "CommunityInfluence": 0,
+      "CarbonTokens": 0
+    },
+    "initial_board": "shuffle Green, Crisis, Policy decks and place on board; properties unowned",
+    "player_order": "highest roll on 2d6 starts; clockwise thereafter"
+  },
+  "metrics": {
+    "SustainabilityScore": {
+      "type": "integer",
+      "range": "-20..100",
+      "description": "Environmental success metric; gained/lost by actions and events"
+    },
+    "CommunityInfluence": {
+      "type": "integer",
+      "range": "0..50",
+      "description": "Social/political influence used in voting and special actions"
+    },
+    "EcoCredits": {
+      "type": "integer",
+      "min": 0,
+      "description": "Primary currency for purchases and payments"
+    },
+    "CarbonTokens": {
+      "type": "integer",
+      "range": "0..10",
+      "description": "Represents pollution footprint; triggers penalties at thresholds"
+    }
+  },
+  "turn_flow": [
+    "Roll 2d6 and move token",
+    "Resolve landed space (buy, pay rent, draw card, event)",
+    "Option Phase (optional; one may do zero or more specific actions)",
+    "Strategic Action (choose exactly one from Strategic Actions list)",
+    "End turn; pass dice to next player"
+  ],
+  "spaces_and_resolve": {
+    "property": {
+      "purchase": "player may buy if unowned",
+      "paths": [
+        "EcoPath",
+        "IndustrialPath"
+      ],
+      "effect": {
+        "EcoPath": {
+          "description": "Lower immediate income, higher SS and lower CO2",
+          "example": {
+            "SS_gain": 5,
+            "rent": 100,
+            "CO2_per_round": 0
+          }
+        },
+        "IndustrialPath": {
+          "description": "Higher income, generates CO2 each round",
+          "example": {
+            "SS_gain": 0,
+            "rent": 200,
+            "CO2_per_round": 1
+          }
+        }
+      },
+      "upgrade": "properties can be upgraded along their current path; converting Industrial->Eco allowed at conversion cost"
+    },
+    "tax_and_fund": {
+      "CarbonTax": "pay EcoCredits based on CarbonTokens when triggered",
+      "EcoFund": "receive community funding when landing"
+    },
+    "draw_card": {
+      "GreenCard": "positive event or innovation",
+      "CrisisCard": "negative or challenging event with player choice",
+      "PolicyCard": "used during Global Summit votes"
+    },
+    "global_summit": {
+      "trigger": "special spaces or CO2 threshold event",
+      "mechanic": "players propose and vote on PolicyCards affecting all"
+    },
+    "natural_disaster": {
+      "effect": "lose EcoCredits and/or SS; may destroy properties"
+    }
+  },
+  "property_system": {
+    "ownership": "owner collects rent when others land",
+    "sets": "owning full zone set enables special upgrades and SS bonuses",
+    "conversion": {
+      "industrial_to_eco": {
+        "cost_formula": "base_conversion_cost + (number_of_upgrades * multiplier)",
+        "effect": "removes future CO2 generation, increases SS, reduces rent"
+      }
+    }
+  },
+  "card_types": {
+    "GreenCards": {
+      "examples": [
+        {
+          "text": "You invent a plastic-eating enzyme. Remove 2 CarbonTokens and gain +10 SS.",
+          "effect": {
+            "CarbonTokens_delta": -2,
+            "SustainabilityScore_delta": 10
+          }
+        },
+        {
+          "text": "Government funds your recycling hub. Collect ₑ250.",
+          "effect": {
+            "EcoCredits_delta": 250
+          }
+        }
+      ]
+    },
+    "CrisisCards": {
+      "examples": [
+        {
+          "text": "Mega drought hits — Pay ₑ150 or lose 5 SS.",
+          "options": [
+            {
+              "choice": "Pay",
+              "effect": { "EcoCredits_delta": -150 }
+            },
+            {
+              "choice": "TakeLoss",
+              "effect": { "SustainabilityScore_delta": -5 }
+            }
+          ]
+        },
+        {
+          "text": "Flooding damages a property — pay repair or lose that property for 2 turns.",
+          "options": [
+            {
+              "choice": "Repair",
+              "effect": { "EcoCredits_delta": -100 }
+            },
+            {
+              "choice": "Abandon",
+              "effect": { "temporary_property_disabled_turns": 2 }
+            }
+          ]
+        }
+      ]
+    },
+    "PolicyCards": {
+      "examples": [
+        {
+          "text": "Carbon Tax: each CarbonToken costs ₑ50 per round.",
+          "effect": { "global_policy": "carbon_tax", "value": 50 }
+        },
+        {
+          "text": "Innovation Fund: players with SS >= X receive payment.",
+          "effect": { "global_policy": "innovation_fund", "criteria": "SS>=X", "payout": 100 }
+        }
+      ],
+      "voting": "Policies require majority vote in Global Summit; CI can give vote weight"
+    }
+  },
+  "dynamic_events_and_thresholds": {
+    "global_CO2_thresholds": [
+      {
+        "threshold_total_CO2": 10,
+        "event": "Minor Climate Warning (only notification; no direct penalties)"
+      },
+      {
+        "threshold_total_CO2": 20,
+        "event": "Extreme Weather: all players lose ₑ100"
+      },
+      {
+        "threshold_total_CO2": 30,
+        "event": "Global Summit: players vote on policy cards"
+      },
+      {
+        "threshold_total_CO2": 40,
+        "event": "Climate Crisis: 1 random property in each zone destroyed unless rebuilt with green tech"
+      }
+    ],
+    "personal_disaster_trigger": {
+      "player_CO2_threshold": 6,
+      "mechanic": "Disaster Roll 1d6 with outcomes",
+      "table": [
+        { "1-2": "Drought: lose ₑ100" },
+        { "3-4": "Wildfire: lose 1 property (owner chooses if multiple)" },
+        { "5": "Forced offset: pay ₑ200" },
+        { "6": "Avert: no effect (resilience luck)" }
+      ]
+    }
+  },
+  "trade_and_alliances": {
+    "trading": {
+      "allowed": true,
+      "items": [
+        "properties",
+        "EcoCredits",
+        "CarbonTokens (offset payments)",
+        "upgrades",
+        "cards"
+      ]
+    },
+    "alliances": {
+      "formation": "players may form Sustainability Alliances for mutual benefits",
+      "mechanics": "alliances can share grants or split costs; alliances may be broken and carry reputation consequences"
+    }
+  },
+  "strategic_actions": [
+    {
+      "name": "Invest in Innovation",
+      "cost": 300,
+      "effect": "Draw 1 GreenCard; small chance for bonus"
+    },
+    {
+      "name": "Launch Awareness Campaign",
+      "cost": 150,
+      "effect": "Gain +3 CommunityInfluence"
+    },
+    {
+      "name": "Offset Emissions",
+      "cost_formula": "ₑ100 per CarbonToken removed",
+      "effect": "Reduce CarbonTokens by amount paid"
+    },
+    {
+      "name": "Lobby for Policy Change",
+      "cost": 0,
+      "effect": "Propose a one-time global rule change; requires majority vote; usable once per game per player"
+    }
+  ],
+  "income_and_rent": {
+    "rent": "determined by property base value, path chosen, and upgrades",
+    "round_income_from_industrial_properties": "IndustrialPath properties add their CO2 to owner each round and yield higher rent",
+    "eco_upgrades": "increase SS and unlock lower operating CO2 or community bonuses"
+  },
+  "scoring_and_win_conditions": {
+    "end_conditions": [
+      "20 full rounds completed",
+      "all properties owned and no further purchases possible",
+      "a player goes bankrupt (optional elimination rule)"
+    ],
+    "global_impact_score_formula": "GIS = SustainabilityScore + (EcoCredits / 100) + CommunityInfluence - (CarbonTokens * 5)",
+    "winner": "player with highest GIS; tie-breaker: lowest CarbonTokens; second tie-breaker: most EcoCredits"
+  },
+  "optional_modes": {
+    "co_op_mode": {
+      "goal": "All players cooperate to keep total CO2 < 40 by round 20",
+      "win_condition": "If successful, all players win; otherwise all lose"
+    },
+    "corporate_mode": {
+      "description": "One secret player is PolluterCorp seeking maximum EcoCredits; others aim to minimize global CO2",
+      "mechanics": "hidden objectives and deduction elements"
+    }
+  },
+  "examples_and_quick_references": {
+    "example_property": {
+      "name": "Solar Farm",
+      "eco_path": {
+        "purchase_cost": 300,
+        "rent": 100,
+        "SS_gain_on_purchase": 5,
+        "CO2_per_round": 0
+      },
+      "industrial_alternative": {
+        "name": "Diesel Plant",
+        "purchase_cost": 300,
+        "rent": 200,
+        "SS_gain_on_purchase": 0,
+        "CO2_per_round": 1
+      }
+    },
+    "example_card_green": {
+      "text": "City awards your green building a sustainability prize. Gain ₑ200 and +5 SS."
+    },
+    "example_card_crisis": {
+      "text": "Major storm damages your waterfront property. Pay ₑ150 or lose 3 SS."
+    }
+  },
+  "notes": {
+    "balance_advice": "Tune EcoCredits rewards, upgrade costs, and CO2 penalties during playtests to achieve desired game length and balance.",
+    "educational_goals": "Meant to teach tradeoffs between short-term profit and long-term sustainability, cooperation vs competition, and policy impact."
+  }
 }
 
-Only available in browser console, not in UI"
+=== CODE GENERATION PROMPTS USED ===
 
-PROMPT 20: Error Handling
---------------------------
-"Add error handling:
-- Try-catch around critical functions
-- Validate player actions (enough resources, valid state)
-- Prevent negative resources (except SS)
-- Handle missing elements gracefully
-- Console log errors for debugging
-- Show user-friendly error messages
-- Recover from bad state when possible"
+1. Initial Game Structure:
+"Create a web-based board game using HTML, CSS, and JavaScript that implements the EcoPolis game rules. The game should have a board with 40 spaces arranged in zones (Energy Revolution, Urban Renewal, Natural World, Global Policy). Include player movement with dice rolls, property management system, and resource tracking for EcoCredits, Sustainability Score, Community Influence, and Carbon Tokens."
+
+2. Game Board and UI:
+"Design a responsive 2D game board layout with 40 spaces arranged around the perimeter like Monopoly. Each space should display its type (property, card draw, tax, etc.) and zone color. Include a central area for displaying current player stats, dice, and game events. Use CSS Grid or Flexbox for the board layout. Add visual indicators for player positions using colored tokens."
+
+3. Player System and Turn Management:
+"Implement a turn-based system for 2-6 players. Each turn should follow this sequence: roll 2d6 dice with animation, move player token around the board, resolve the landed space (property purchase/rent, card draw, special events), allow optional actions, then require one strategic action before ending the turn. Track turn order and highlight the active player."
+
+4. Property System with Dual Paths:
+"Create a property system where each property can be developed along two paths: EcoPath (lower rent, higher sustainability score, no carbon emissions) or IndustrialPath (higher rent, generates carbon tokens). When a player lands on an unowned property, show a modal with both path options and their costs/benefits. Allow property upgrades and conversion from Industrial to Eco path with appropriate costs."
+
+5. Card System Implementation:
+"Implement three card deck systems: GreenCards (positive events), CrisisCards (challenges with player choices), and PolicyCards (used in Global Summit voting). Create card draw mechanics with animated card flip effects. Each card should display its effect clearly and execute the appropriate game state changes when resolved."
+
+6. Resource and Metrics Tracking:
+"Build a comprehensive resource tracking system that displays each player's EcoCredits (currency), Sustainability Score (-20 to 100), Community Influence (0-50), and Carbon Tokens (0-10). Update these values in real-time with smooth animations. Show warnings when Carbon Tokens approach dangerous thresholds."
+
+7. Dynamic Events and Thresholds:
+"Implement a global CO2 tracking system that triggers events at specific thresholds (10, 20, 30, 40 total CO2). At threshold 10, show a climate warning. At 20, all players lose EcoCredits. At 30, trigger a Global Summit voting sequence. At 40, trigger climate crisis with property destruction. Also implement personal disaster rolls when individual players reach 6+ Carbon Tokens."
+
+8. Global Summit and Voting:
+"Create a voting system for the Global Summit where players can propose and vote on PolicyCards. Display all policy options, allow each player to cast votes (weighted by Community Influence), tally results, and apply the winning policy globally. Show voting UI with clear instructions and countdown timer for decision-making."
+
+9. Trading and Alliance System:
+"Implement a player-to-player trading interface where players can offer/request properties, EcoCredits, Carbon Token offsets, upgrades, and cards. Create an alliance formation system where players can form Sustainability Alliances for mutual benefits. Include UI for trade proposals, acceptance/rejection, and alliance management."
+
+10. Strategic Actions Menu:
+"Create a strategic actions menu that appears during each player's turn with options: Invest in Innovation (ₑ300 - draw GreenCard), Launch Awareness Campaign (ₑ150 - gain +3 CI), Offset Emissions (ₑ100 per token), and Lobby for Policy Change (propose rule change with voting). Each action should have clear cost/benefit display and confirmation dialog."
+
+11. Scoring and Win Condition:
+"Implement the Global Impact Score calculation: GIS = SustainabilityScore + (EcoCredits/100) + CommunityInfluence - (CarbonTokens × 5). Display current GIS for all players in a leaderboard. Check win conditions after 20 rounds or when all properties are owned. Show final scores with winner announcement and breakdown of score components."
+
+12. Game States and Screen Management:
+"Create a screen management system with these views: Menu Screen (start game, settings, rules), Setup Screen (select player count and names), Play Screen (main game board), and Results Screen (final scores and winner). Implement smooth transitions between screens and maintain game state persistence."
+
+13. Animations and Visual Feedback:
+"Add animations for: dice rolling with 3D effect, player token movement around the board, card drawing and flipping, resource updates with number count-up effects, property purchase celebrations, crisis event warnings, and turn transitions. Use CSS animations and JavaScript timing for smooth visual feedback."
+
+14. Mobile Responsiveness:
+"Make the game fully responsive for mobile devices. Adjust board layout for portrait/landscape orientations. Ensure touch controls work smoothly for all interactions. Scale card displays and modals appropriately. Test on various screen sizes and ensure all game elements remain usable on mobile."
+
+15. Sound Effects and Music:
+"Add background music and sound effects for key game events: dice roll, token movement, card draw, property purchase, crisis events, celebration sounds for sustainability milestones, warning sounds for climate thresholds. Implement volume controls and mute option. Use Web Audio API or HTML5 audio elements."
+
+
+
+
+
